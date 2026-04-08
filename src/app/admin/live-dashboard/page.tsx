@@ -56,8 +56,8 @@ export default function AdminLiveDashboard() {
         // Get answers for this domain
         const { data: answers } = await supabase
           .from("answers")
-          .select("a.is_correct, q.domain_id")
-          .eq("q.domain_id", domain.id);
+          .select("is_correct, questions!inner(domain_id)")
+          .eq("questions.domain_id", domain.id);
 
         // Get active question for this domain
         const { data: activeQuestion } = await supabase
@@ -77,7 +77,7 @@ export default function AdminLiveDashboard() {
 
         // Calculate accuracy
         const totalAnswers = answers?.length || 0;
-        const correctAnswers = answers?.filter((a) => a.is_correct).length || 0;
+        const correctAnswers = (answers as any[])?.filter((a) => a.is_correct).length || 0;
 
         stats.push({
           domain_id: domain.id,
