@@ -91,14 +91,14 @@ export default function ArenaPage() {
 
   // Check if current user has bid
   const checkUserBid = async (questionId: string) => {
+    if (!user) return;
     const { data } = await supabase
       .from('domain_bids')
       .select('*')
       .eq('user_id', user.id)
       .eq('question_id', questionId)
       .eq('status', 'active')
-      .single()
-      .catch(() => ({ data: null }));
+      .maybeSingle();
 
     if (data) {
       setUserBid(data);
@@ -128,6 +128,7 @@ export default function ArenaPage() {
     setIsPlacingBid(true);
 
     try {
+      if (!user) return;
       const { error } = await supabase.from('domain_bids').insert({
         user_id: user.id,
         domain_id: domainId,
@@ -161,6 +162,7 @@ export default function ArenaPage() {
       const creditsDeducted = userBid ? userBid.bid_amount * currentMultiplier : bidAmount * currentMultiplier;
 
       // Insert answer
+      if (!user) return;
       const { error: answerError } = await supabase.from('answers').insert({
         user_id: user.id,
         question_id: currentQuestion.id,

@@ -15,10 +15,10 @@ function parseQuestion(content: string) {
   let options = { A: "A", B: "B", C: "C", D: "D" };
 
   try {
-    const matchA = content.match(/A\)(.*?)(?=B\)|$)/is);
-    const matchB = content.match(/B\)(.*?)(?=C\)|$)/is);
-    const matchC = content.match(/C\)(.*?)(?=D\)|$)/is);
-    const matchD = content.match(/D\)(.*?)$/is);
+    const matchA = content.match(/A\)([\s\S]*?)(?=B\)|$)/i);
+    const matchB = content.match(/B\)([\s\S]*?)(?=C\)|$)/i);
+    const matchC = content.match(/C\)([\s\S]*?)(?=D\)|$)/i);
+    const matchD = content.match(/D\)([\s\S]*?)$/i);
 
     if (matchA && matchB) {
       options.A = `A) ${matchA[1].trim()}`;
