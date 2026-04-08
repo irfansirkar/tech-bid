@@ -1,0 +1,30 @@
+{
+  "data": [
+    {
+      "id": "a94de8c8-e875-4005-8e3b-49f094b76781",
+      "domain_id": "f10c1744-b6a2-4ffc-bbc5-065aad32179d",
+      "is_active": false
+    },
+    {
+      "id": "38a8a37c-2ca0-42ef-a600-dec477e57bbe",
+      "domain_id": "f10c1744-b6a2-4ffc-bbc5-065aad32179d",
+      "is_active": false
+    },
+    {
+      "id": "5b15f0d4-7a66-4553-a267-960b9eb691d2",
+      "domain_id": "f10c1744-b6a2-4ffc-bbc5-065aad32179d",
+      "is_active": false
+    },
+    {
+      "id": "9a07e9f8-ec7d-408e-90d6-7e3f2230db95",
+      "domain_id": "f10c1744-b6a2-4ffc-bbc5-065aad32179d",
+      "is_active": false
+    },
+    {
+      "id": "7a8d72fd-0017-4ea3-9d32-df89ede67190",
+      "domain_id": "f10c1744-b6a2-4ffc-bbc5-065aad32179d",
+      "is_active": false
+    }
+  ],
+  "error": null
+}

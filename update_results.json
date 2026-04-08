@@ -1,0 +1,419 @@
+{
+  "updated": [
+    {
+      "id": "8ad1ae98-6b5e-4592-aadf-22a0d555ed79",
+      "question": "In AI, a \"Neural Network\" is loosely inspired by which biolo",
+      "old": "D",
+      "new": "C"
+    },
+    {
+      "id": "4030c4af-f804-4f15-b34b-1b5df00609d9",
+      "question": "Which of the following is a common use case for Unsupervised",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "bf477882-23af-49d5-9640-304069ba242b",
+      "question": "What is an \"Algorithm\" in the context of AIML?",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "00f0f7ef-576a-42ad-a3ba-45e923399610",
+      "question": "A \"Chatbot\" is an AI application primarily designed to:",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "ba0deef2-60ab-4c17-b84d-af660531af47",
+      "question": "Why is \"Data Cleaning\" important in Machine Learning?",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "c9502675-a03c-4691-aeeb-f00a7ad164f3",
+      "question": "The \"Turing Test\" was developed to determine:",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "7d783a3d-0e7c-42c7-8ca1-c03c443e6ab4",
+      "question": "Which of these is a major ethical concern in AI development?",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "34ff7f65-6731-4807-84db-425474247135",
+      "question": "What vulnerability did the Mirai botnet primarily exploit?",
+      "old": "B",
+      "new": "A"
+    },
+    {
+      "id": "3e1a1ad4-e2f8-4f83-b9da-5f567a9abf60",
+      "question": "What is the core function of an AI Agent?",
+      "old": "D",
+      "new": "C"
+    },
+    {
+      "id": "fc8edc5e-cdc5-4b91-9798-a9275df1d0ff",
+      "question": "An AI Agent is said to possess 'agency' when it has the capa",
+      "old": "D",
+      "new": "A"
+    },
+    {
+      "id": "13de6bc3-329a-457e-a9ed-9d53a58cb83a",
+      "question": "Model Context Protocol (MCP) focuses on which aspect of agen",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "ebf64edf-f270-4892-a1c0-e79ccbf7689f",
+      "question": "What is the purpose of 'Text Chunking' in an Agentic RAG sys",
+      "old": "D",
+      "new": "A"
+    },
+    {
+      "id": "95695bec-7cef-4613-baf6-6a1f5a90ca16",
+      "question": "The term 'tool-use' in Agentic AI refers to the LLM's capabi",
+      "old": "D",
+      "new": "A"
+    },
+    {
+      "id": "5b103589-732c-4571-a13f-f4cdb174ebbb",
+      "question": "Where should processing occur for real-time healthcare alert",
+      "old": "B",
+      "new": "A"
+    },
+    {
+      "id": "4d9c6393-afb3-41ed-b3f4-6cbc30a1c91e",
+      "question": "In a blockchain, what is a 'block'?",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "61487723-a7d2-4203-8c89-9857a3842741",
+      "question": "What is a \"Smart Contract\"?",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "ef638449-d730-43d3-9f24-db826a2871a3",
+      "question": "What is a 'node' in a blockchain network?",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "943cd187-c1e0-4ecc-a07f-ba35891b4ea6",
+      "question": "How does blockchain improve transparency in a supply chain c",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "0b1e44a3-0510-49f9-89a9-6e0a573e39e6",
+      "question": "A 'Private Key' is essential because it allows the user to:",
+      "old": "D",
+      "new": "C"
+    },
+    {
+      "id": "d9ea800e-ec8c-4e2c-b913-32ca10f947d9",
+      "question": "What is the primary concern addressed by the 'Blockchain Tri",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "6d356830-32c0-403a-b83d-b115981316ee",
+      "question": "In the Ethereum ecosystem, what does 'Gas' fundamentally rep",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "f34b5ec0-0b41-42dd-ae74-87e289a7a23a",
+      "question": "In blockchain development, what defines a 'Hard Fork'?",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "10758703-074a-42df-b299-debb8f6f263f",
+      "question": "What is a Decentralized Autonomous Organization (DAO)?",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "332014b2-e901-424e-b02f-3ce48eabb7a9",
+      "question": "The concept of 'Tokenomics' primarily deals with:",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "c4e185e8-e5a9-471b-8668-a0dd522b3794",
+      "question": "What is the primary function of a 'Loss Function' (or Cost F",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "3b9a22d4-19b7-4214-b355-a0f19013f4bb",
+      "question": "A data scientist is preparing image data for a Convolutional",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "a9fb7219-e091-4317-90e4-f0a637b780af",
+      "question": "Which technique is essential in Recurrent Neural Networks (R",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "0ffa36bb-217d-4a36-8059-47628d3d24a6",
+      "question": "What is 'Transfer Learning' in AI, as often used in Computer",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "f38b7b9c-1848-41a2-9469-72e0b72d80c7",
+      "question": "A self-driving car’s perception system uses AI to classify o",
+      "old": "D",
+      "new": "C"
+    },
+    {
+      "id": "f1342670-f070-4b23-a017-d5d7c7830e3d",
+      "question": "Which term describes the process of automatically finding th",
+      "old": "D",
+      "new": "C"
+    },
+    {
+      "id": "c4cf142c-bea6-40ac-943e-b12e2b8e20eb",
+      "question": "When using a Large Language Model (LLM) for a specific domai",
+      "old": "D",
+      "new": "C"
+    },
+    {
+      "id": "30fc476c-f581-4391-bb2c-af4886bc12af",
+      "question": "Which metric is most critical for a company deploying an AI ",
+      "old": "D",
+      "new": "C"
+    },
+    {
+      "id": "92f76b1e-4275-4cc9-b427-89562899ac81",
+      "question": "What is the purpose of 'Gradient Descent' in the training pr",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "d23acebc-fdd9-4ecb-8b21-fb67815cf150",
+      "question": "A startup building a predictive model for stock prices needs",
+      "old": "D",
+      "new": "C"
+    },
+    {
+      "id": "f33af07a-108c-44c2-8dbf-36fdcaa4319e",
+      "question": "In Natural Language Processing (NLP), what term describes co",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "ecefeb19-6920-476d-a0b1-2753bb05206d",
+      "question": "What is 'Dimensionality Reduction' primarily used for in lar",
+      "old": "D",
+      "new": "C"
+    },
+    {
+      "id": "182614f8-9d8d-493f-b1b1-15e70e149419",
+      "question": "Which mathematical operation is the foundational principle f",
+      "old": "D",
+      "new": "C"
+    },
+    {
+      "id": "7ba980ea-0e95-4d1a-994b-33eabb956375",
+      "question": "When training Deep Neural Networks, the 'Vanishing Gradient ",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "96b6577e-957f-4310-abae-c5e6487a0c08",
+      "question": "In a sequence-to-sequence model used for machine translation",
+      "old": "D",
+      "new": "C"
+    },
+    {
+      "id": "f3702a2d-a8e8-4a3a-95ce-98003b9861f3",
+      "question": "Which term is used to describe an AI model whose complexity ",
+      "old": "D",
+      "new": "C"
+    },
+    {
+      "id": "7f39b87a-d674-4665-8ad6-c22d9a874a65",
+      "question": "What is the primary technical advantage of using Stochastic ",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "5272d09a-43f7-420a-b648-4abe708a7cfd",
+      "question": "In Reinforcement Learning, what concept defines the long-ter",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "ee3af496-b6e8-4aa4-9463-05f8915c525b",
+      "question": "In the realm of Reinforcement Learning, what is the 'Environ",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "7195a9be-a75e-45b1-940b-4c5bf2e786cc",
+      "question": "What technique is employed to reduce 'internal covariate shi",
+      "old": "D",
+      "new": "C"
+    },
+    {
+      "id": "c3d6dcf6-6915-4e97-9a4e-728daa8e9014",
+      "question": "What is 'Sharding' as a primary solution for blockchain scal",
+      "old": "D",
+      "new": "B"
+    },
+    {
+      "id": "2d6150bb-d887-480a-a850-f668265ac808",
+      "question": "Which combination best reduces latency and bandwidth usage i",
+      "old": "B",
+      "new": "A"
+    }
+  ],
+  "alreadyCorrect": 338,
+  "noMatch": [
+    "Which of the following is an example of Software as a Servic",
+    "What is the primary role of a Cloud Access Security Broker (",
+    "Which scaling strategy is most effective for handling unpred",
+    "Which architecture is best for delivering static content glo",
+    "Which cloud computing characteristic allows users to provisi",
+    "A company wants to deploy its application while maintaining ",
+    "Which cloud deployment model provides infrastructure dedicat",
+    "What is the primary financial advantage of the pay-as-you-go",
+    "What does “broad network access” imply in cloud computing?",
+    "Why is object storage commonly used in cloud environments?",
+    "What does “resource pooling” mean in cloud computing?",
+    "What is the primary purpose of a Virtual Private Cloud (VPC)",
+    "Which workload is best suited for Spot Instances?",
+    "Which statement best describes Availability Zones within a c",
+    "What is a common limitation of serverless computing?",
+    "A developer deploys a function that executes only when trigg",
+    "Which cloud capability enables systems to automatically scal",
+    "In Kubernetes, what is the function of a Service object?",
+    "An organization uses both on-premises infrastructure and pub",
+    "In an IaaS model, which of the following responsibilities li",
+    "Which cloud service model provides the highest level of cont",
+    "Which cloud benefit enables startups to deploy applications ",
+    "In a SaaS model, which responsibility is handled entirely by",
+    "Which storage tier is most cost-effective for data that is r",
+    "Which property ensures that a cloud system continues to func",
+    "Which cloud deployment model is commonly used by organizatio",
+    "A developer wants to run containerized applications without ",
+    "An organization uses AWS for compute, Azure for AI, and GCP ",
+    "In a PaaS environment, which component is typically managed ",
+    "A company migrates a legacy application without modifying it",
+    "When using a managed relational database service, which resp",
+    "Which solution ensures application data persists even if con",
+    "In a distributed database where write consistency is set to ",
+    "What is the key difference between horizontal and vertical s",
+    "What is the primary advantage of Infrastructure as Code (IaC",
+    "How can two VPCs with overlapping CIDR ranges communicate pr",
+    "Which of the following best describes the fundamental idea b",
+    "Which of the following is the most appropriate example of an",
+    "What is the primary role of an actuator in an IoT system?",
+    "Which of the following represents a consumer IoT application",
+    "What is the primary role of an IoT gateway?",
+    "Which of the following is a major constraint in IoT devices?",
+    "What is the difference between soft delete and immutable sto",
+    "What is a major trade-off in multi-region active-active data",
+    "Which IAM policy condition ensures EC2 instances are launche",
+    "A Lambda function times out due to slow external API respons",
+    "Which cost optimization strategy is most effective for under",
+    "In an eventually consistent system, what is the temporary de",
+    "In envelope encryption, if a data encryption key (DEK) is co",
+    "Which architecture ensures reliable job processing even if w",
+    "Which tool is most effective for identifying latency bottlen",
+    "Which component in an IoT system is primarily responsible fo",
+    "A smart irrigation system activates watering based on soil m",
+    "Which communication paradigm is most commonly used in IoT sy",
+    "An IoT device sends temperature data once every hour. How is",
+    "What is the key distinction between IoT devices and traditio",
+    "Even when using a managed database service, which responsibi",
+    "Which architecture minimizes egress costs while delivering g",
+    "According to the CAP theorem, what trade-off must be made du",
+    "A wearable fitness tracker that monitors heart rate is an ex",
+    "In the context of IoT, what does the term “thing” refer to?",
+    "Which of the following is NOT a standard communication range",
+    "A smart parking system that shows real-time availability mai",
+    "Which power solution is most suitable for remote IoT sensors",
+    "Air quality data collected from sensors is best categorized ",
+    "Which scenario best represents a “store-and-forward” IoT sys",
+    "What does OTA (Over-the-Air) update enable in IoT devices?",
+    "Which IoT layer directly interacts with the physical environ",
+    "Which transport approach is most suitable for sending lightw",
+    "What is the primary role of a microcontroller (MCU) in an Io",
+    "If a symmetric encryption key is hardcoded across all IoT de",
+    "Which approach provides the most secure identity management ",
+    "An IoT system requires anomaly detection within 50ms, but cl",
+    "Which protocol is based on IEEE 802.15.4 and widely used in ",
+    "Which protocol is designed for lightweight device management",
+    "Which feature of 5G makes it suitable for IoT applications?",
+    "What type of communication protocol is I²C?",
+    "What is the purpose of a watchdog timer in IoT devices?",
+    "Why is Wi-Fi not ideal for many battery-powered IoT devices?",
+    "What does edge computing refer to in IoT?",
+    "Which protocol is best suited for real-time industrial IoT c",
+    "What is meant by “bit-banging” in embedded IoT systems?",
+    "What is the primary purpose of a digital twin in IoT systems",
+    "If a device certificate is compromised, what is the best mit",
+    "What role does blockchain play in IoT systems?",
+    "Which practice prevents large-scale IoT botnet attacks like ",
+    "Which communication pattern is used by MQTT?",
+    "What is the function of an ADC in an IoT system?",
+    "Which is the most effective way to prevent spoofed sensor da",
+    "What is the purpose of frameworks like EdgeX Foundry in IoT?",
+    "What is meant by “scaling out” in DevOps?",
+    "What is meant by “scaling up”?",
+    "What is the purpose of a load balancer?",
+    "What is a Docker image?",
+    "What is DevOps primarily about?",
+    "Which tool is used for version control?",
+    "What does CI stand for?",
+    "Which tool is commonly used for CI/CD?",
+    "What is Docker used for?",
+    "What file is used to build a Docker image?",
+    "What is Kubernetes mainly used for?",
+    "Which command initializes a Git repository?",
+    "What is a repository?",
+    "What is a branch in Git?",
+    "What does CD stand for?",
+    "Which OS is most used in DevOps?",
+    "What is YAML used for?",
+    "What is a container?",
+    "Which command builds a Docker image?",
+    "What is GitHub?",
+    "What is a pipeline?",
+    "Which tool is used for monitoring?",
+    "What is SSH used for?",
+    "What is rollback?",
+    "What is Infrastructure as Code (IaC)?",
+    "Which IaC tool is widely used?",
+    "What does docker run do?",
+    "What is a Kubernetes Pod?",
+    "What is load balancing?",
+    "What is a reverse proxy?",
+    "What is Blue-Green deployment?",
+    "What is a container registry?",
+    "What does git merge do?",
+    "What is autoscaling?",
+    "What is a node in Kubernetes?",
+    "What is logging?",
+    "What is CI pipeline trigger?",
+    "What is artifact in CI/CD?",
+    "What is canary deployment?",
+    "In Kubernetes, what will happen if a Pod crashes?",
+    "What is the difference between a container and a VM?",
+    "What is a service mesh?",
+    "Why is CoAP preferred over HTTP in constrained IoT environme",
+    "Which wireless technology is best suited for long-range, low",
+    "Which architecture is best suited for real-time fraud detect",
+    "Which cloud feature ensures compliance with data protection "
+  ]
+}
