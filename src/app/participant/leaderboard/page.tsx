@@ -79,9 +79,11 @@ export default function LeaderboardPage() {
         setScores(sortedScores);
 
         // Find current user's rank
-        const myRank = sortedScores.find((s) => s.user_id === user?.id);
-        if (myRank) {
-          setUserRank(myRank);
+        if (user) {
+          const myRank = sortedScores.find((s) => s.user_id === user.id);
+          if (myRank) {
+            setUserRank(myRank);
+          }
         }
       }
     } finally {

@@ -383,6 +383,7 @@ export default function ArenaPage() {
     setIsSubmitting(true);
     setSubmittedAnswer(option);
     try {
+      if (!user) return;
       const isCorrect = option === currentQuestion.correct_answer;
       const { error: answerError } = await supabase.from('answers').insert({
         user_id: user.id,

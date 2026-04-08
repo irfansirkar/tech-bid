@@ -63,7 +63,10 @@ export default function ParticipantLobby() {
         const domainId = payload.new.domain_id;
         if (domainId) fetchBidInfoForDomain(domainId);
       }).subscribe();
-    return () => { supabase.removeChannel(channel); if (timerRef.current) clearInterval(timerRef.current); };
+    return () => { 
+      supabase.removeChannel(channel); 
+      if (timerRef.current) clearInterval(timerRef.current); 
+    };
   }, [user]);
 
   const syncUserToDb = async () => {
@@ -90,7 +93,11 @@ export default function ParticipantLobby() {
   const fetchBidInfoForDomain = async (domainId: string) => {
     const { data: bids } = await supabase.from("domain_bids").select("user_id").eq("domain_id", domainId).eq("status", "active");
     const uniqueBidders = new Set((bids || []).map((b: any) => b.user_id));
-    setDomainBidInfo(prev => ({ ...prev, [domainId]: { bidderCount: uniqueBidders.size, userHasBid: user ? uniqueBidders.has(user.id) : false } }));
+    if (user) {
+      setDomainBidInfo(prev => ({ ...prev, [domainId]: { bidderCount: uniqueBidders.size, userHasBid: uniqueBidders.has(user.id) } }));
+    } else {
+      setDomainBidInfo(prev => ({ ...prev, [domainId]: { bidderCount: uniqueBidders.size, userHasBid: false } }));
+    }
   };
 
   const handlePlaceBid = async (domainId: string) => {
