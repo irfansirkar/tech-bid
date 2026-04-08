@@ -1,7 +1,7 @@
 // ✅ Correct for Next.js 16+
 import { NextRequest, NextResponse } from 'next/server';
 
-export function proxy(request: NextRequest) {   // ← Changed to 'proxy'
+export default function proxy(request: NextRequest) {   // ← Changed to default export
   // your code...
   return NextResponse.next();
 }
