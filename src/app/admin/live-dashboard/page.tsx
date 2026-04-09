@@ -19,6 +19,7 @@ interface DomainLiveStats {
   answers_submitted: number;
   correct_answers: number;
   accuracy: number;
+  status: string;
 }
 
 interface BidActivity {
@@ -40,56 +41,41 @@ export default function AdminLiveDashboard() {
     try {
       // Get all domains
       const { data: domains } = await supabase.from("domains").select("*");
-
       if (!domains) return;
+
+      // Get all active bids in one go to avoid N+1 queries
+      const { data: allBids } = await supabase
+        .from("domain_bids")
+        .select("domain_id, user_id, bid_amount")
+        .eq("status", "active");
+
+      // Get all answers
+      const { data: allAnswers } = await supabase
+        .from("answers")
+        .select("is_correct, questions!inner(domain_id)");
 
       const stats: DomainLiveStats[] = [];
 
       for (const domain of domains) {
-        // Get bids for this domain
-        const { data: bids } = await supabase
-          .from("domain_bids")
-          .select("*")
-          .eq("domain_id", domain.id)
-          .eq("status", "active");
-
-        // Get answers for this domain
-        const { data: answers } = await supabase
-          .from("answers")
-          .select("is_correct, questions!inner(domain_id)")
-          .eq("questions.domain_id", domain.id);
-
-        // Get active question for this domain
-        const { data: activeQuestion } = await supabase
-          .from("questions")
-          .select("content")
-          .eq("domain_id", domain.id)
-          .eq("is_active", true)
-          .limit(1);
-
-        // Calculate multiplier
-        const bidCount = new Set((bids || []).map((b) => b.user_id)).size;
-        let multiplier = 1;
-        if (bidCount >= 5 && bidCount < 10) multiplier = 2;
-        else if (bidCount >= 10 && bidCount < 15) multiplier = 3;
-        else if (bidCount >= 15 && bidCount < 20) multiplier = 4;
-        else if (bidCount >= 20) multiplier = 5;
-
-        // Calculate accuracy
-        const totalAnswers = answers?.length || 0;
-        const correctAnswers = (answers as any[])?.filter((a) => a.is_correct).length || 0;
+        const domainBids = allBids?.filter(b => b.domain_id === domain.id) || [];
+        const domainAnswers = (allAnswers as any[])?.filter((a: any) => a.questions.domain_id === domain.id) || [];
+        
+        const bidCount = new Set(domainBids.map(b => b.user_id)).size;
+        const totalAnswers = domainAnswers.length;
+        const correctAnswers = domainAnswers.filter(a => a.is_correct).length;
 
         stats.push({
           domain_id: domain.id,
           domain_name: domain.name,
           total_bidders: bidCount,
-          current_multiplier: multiplier,
-          total_credits_bid: (bids || []).reduce((sum, b) => sum + b.bid_amount, 0),
-          avg_bid: bidCount > 0 ? Math.round(((bids || []).reduce((sum, b) => sum + b.bid_amount, 0) / bidCount) * 100) / 100 : 0,
-          active_question: activeQuestion?.[0]?.content || null,
+          current_multiplier: domain.multiplier || 1, // Trust the manually set multiplier
+          total_credits_bid: domainBids.reduce((sum, b) => sum + b.bid_amount, 0),
+          avg_bid: bidCount > 0 ? Math.round((domainBids.reduce((sum, b) => sum + b.bid_amount, 0) / bidCount) * 100) / 100 : 0,
+          active_question: null,
           answers_submitted: totalAnswers,
           correct_answers: correctAnswers,
           accuracy: totalAnswers > 0 ? Math.round((correctAnswers / totalAnswers) * 100) : 0,
+          status: domain.status || 'pending'
         });
       }
 
@@ -237,19 +223,23 @@ export default function AdminLiveDashboard() {
                         <div className="flex justify-between items-start">
                           <div className="flex-1">
                             <h3 className="text-lg font-bold text-white mb-1">{domain.domain_name}</h3>
-                            {domain.active_question && (
-                              <p className="text-sm text-slate-400 line-clamp-1">Q: {domain.active_question}</p>
-                            )}
                           </div>
-                          <Badge className={`${domain.total_bidders === 0 ? "bg-slate-700" : "bg-emerald-500"} text-slate-950`}>
-                            {domain.active_question ? "ACTIVE" : "IDLE"}
+                          <Badge className={`
+                            ${domain.status === 'bidding' ? 'bg-emerald-500 text-slate-950' : 
+                              domain.status === 'arena_open' ? 'bg-purple-500 text-white' :
+                              domain.status === 'rapid_fire' ? 'bg-rose-500 text-white' :
+                              domain.status === 'completed' ? 'bg-slate-700 text-slate-300' : 'bg-slate-800 text-slate-400'}
+                          `}>
+                            {domain.status?.replace('_', ' ').toUpperCase() || 'OFFLINE'}
                           </Badge>
                         </div>
 
                         <div className="grid grid-cols-5 gap-4 text-center">
                           <div>
                             <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">Bidders</p>
-                            <p className="text-2xl font-bold text-cyan-400 flex items-center justify-center gap-1">
+                            <p className={`text-2xl font-bold flex items-center justify-center gap-1 ${
+                              domain.total_bidders > 5 ? 'text-rose-400' : domain.total_bidders > 0 ? 'text-emerald-400' : 'text-slate-600'
+                            }`}>
                               <Users className="w-4 h-4" />
                               {domain.total_bidders}
                             </p>
