@@ -389,7 +389,7 @@ export default function AdminDomains() {
                   </Button>
                   <Button
                     onClick={() => updateStatus(domain.id, "rapid_fire")}
-                    disabled={!isArenaOpen}
+                    disabled={isCompleted}
                     variant="outline"
                     className="flex-1 min-w-[120px] bg-slate-950 border-rose-500/30 text-rose-400 hover:bg-rose-500/10 hover:text-rose-300 disabled:opacity-50"
                   >
