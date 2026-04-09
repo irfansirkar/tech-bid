@@ -1,6 +1,6 @@
 "use client";
 
-import { Shield, LayoutDashboard, Users, FileQuestion, Settings, AlertCircle, LogOut, Zap } from "lucide-react";
+import { Shield, LayoutDashboard, Users, FileQuestion, Settings, AlertCircle, LogOut, Zap, Trophy } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -34,6 +34,7 @@ export default function AdminLayout({
     { name: "Overview", href: "/admin", icon: LayoutDashboard },
     { name: "Manage Domains", href: "/admin/domains", icon: Settings },
     { name: "Smart Strike", href: "/admin/smart-strike", icon: Zap },
+    { name: "Leaderboard", href: "/admin/leaderboard", icon: Trophy },
     { name: "Questions Bank", href: "/admin/questions", icon: FileQuestion },
     { name: "Participants", href: "/admin/users", icon: Users },
     { name: "Manage Admins", href: "/admin/manage-admins", icon: Shield },
