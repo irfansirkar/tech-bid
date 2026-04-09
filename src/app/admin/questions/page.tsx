@@ -141,6 +141,58 @@ export default function AdminQuestions() {
     setSaving(false);
   };
 
+  const populateDefaultQuestions = async () => {
+    setSaving(true);
+    let insertedCount = 0;
+    try {
+      const { data: currentQuestions } = await supabase.from('questions').select('domain_id');
+      const domainQuestionCounts: Record<string, number> = {};
+      currentQuestions?.forEach(q => {
+        domainQuestionCounts[q.domain_id] = (domainQuestionCounts[q.domain_id] || 0) + 1;
+      });
+
+      const DEFAULT_BANK: Record<string, any[]> = {
+        'AI/ML': [
+          { content: 'What does "overfitting" mean in machine learning?', option_a: 'Model learning training data too well', option_b: 'Model performing well on new data', option_c: 'Too many features', option_d: 'Too many layers', correct_answer: 'A', difficulty: 'easy', round_type: 'rapid_fire' },
+          { content: 'Which algorithm is commonly used for image classification?', option_a: 'K-Means', option_b: 'CNN', option_c: 'Linear Regression', option_d: 'Decision Trees', correct_answer: 'B', difficulty: 'medium', round_type: 'bidding' }
+        ],
+        'Cybersecurity': [
+          { content: 'What is a "zero-day vulnerability"?', option_a: 'A patched flaw', option_b: 'An unknown flaw exploited before disclosure', option_c: 'A security feature', option_d: 'Antivirus type', correct_answer: 'B', difficulty: 'hard', round_type: 'bidding' },
+          { content: 'What does "phishing" refer to?', option_a: 'Fishing technique', option_b: 'Deceptive emails to steal info', option_c: 'Water security', option_d: 'DB optimization', correct_answer: 'B', difficulty: 'easy', round_type: 'rapid_fire' }
+        ],
+        'Cloud Computing': [
+          { content: 'What are the three primary cloud service models?', option_a: 'IaaS, PaaS, SaaS', option_b: 'HTTP, HTTPS, FTP', option_c: 'SQL, NoSQL, NewSQL', option_d: 'Frontend, Backend, DB', correct_answer: 'A', difficulty: 'easy', round_type: 'rapid_fire' }
+        ],
+        'Blockchain': [
+          { content: 'What is the consensus mechanism for Bitcoin?', option_a: 'PoW', option_b: 'PoS', option_c: 'PoA', option_d: 'PoH', correct_answer: 'A', difficulty: 'medium', round_type: 'bidding' }
+        ]
+      };
+
+      for (const domain of domains) {
+        if (!domainQuestionCounts[domain.id] || domainQuestionCounts[domain.id] < 1) {
+          const samples = DEFAULT_BANK[domain.name] || [
+            { content: `Default Question for ${domain.name}: What is the primary focus of this domain?`, option_a: 'Innovation', option_b: 'Stability', option_c: 'Performance', option_d: 'Security', correct_answer: 'A', difficulty: 'easy', round_type: 'rapid_fire' },
+            { content: `Advanced Question for ${domain.name}: How is scalability handled here?`, option_a: 'Horizontal', option_b: 'Vertical', option_c: 'Manual', option_d: 'None', correct_answer: 'A', difficulty: 'medium', round_type: 'bidding' }
+          ];
+
+          for (const s of samples) {
+            await supabase.from('questions').insert({
+              domain_id: domain.id,
+              ...s,
+              is_active: false
+            });
+            insertedCount++;
+          }
+        }
+      }
+      await fetchQuestions();
+      alert(`Successfully added ${insertedCount} default questions!`);
+    } catch (err) {
+      console.error('Error populating questions:', err);
+    }
+    setSaving(false);
+  };
+
   const advanceToNextQuestion = async (domainId: string) => {
     setAdvancingDomain(domainId);
     try {
@@ -184,9 +236,29 @@ export default function AdminQuestions() {
 
   return (
     <div className="p-8">
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-2">Question Bank</h1>
-        <p className="text-slate-400">Live questions for active domains. Use the domain management page to start bidding rounds.</p>
+      <header className="mb-8 flex justify-between items-start">
+        <div>
+          <h1 className="text-3xl font-bold text-white mb-2">Question Bank</h1>
+          <p className="text-slate-400">Live questions for active domains. Use the domain management page to start bidding rounds.</p>
+        </div>
+        <div className="flex gap-3">
+          <Button 
+            onClick={populateDefaultQuestions}
+            disabled={saving}
+            className="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700"
+          >
+            <Loader className={`w-4 h-4 mr-2 ${saving ? 'animate-spin' : ''}`} />
+            Load Sample Bank
+          </Button>
+          <Button 
+            onClick={activateOneBiddingQuestionPerDomain}
+            disabled={saving}
+            className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold"
+          >
+            <CheckCircle2 className="w-4 h-4 mr-2" />
+            Auto-Live All Domains
+          </Button>
+        </div>
       </header>
 
       {/* Active Questions — only show domains that are currently running */}
