@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CopyIcon, Shield, GlobeLock, Cpu, Server, Database, CloudRain, Binary, Cog, Play, Square, FastForward, Activity, RotateCcw, RefreshCw, Zap, BellElectric } from "lucide-react";
+import { CopyIcon, Shield, GlobeLock, Cpu, Server, Database, CloudRain, Binary, Cog, Play, Square, FastForward, Activity, RotateCcw, RefreshCw, Zap, BellElectric, Users } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/lib/supabase";
@@ -352,6 +352,18 @@ export default function AdminDomains() {
                       {isRapidFire && <Badge variant="default" className="ml-2 bg-rose-500/20 text-rose-400 border-rose-500">Active: Buzzer Fire</Badge>}
                       {isSmartStrike && <Badge variant="default" className="ml-2 bg-blue-500/20 text-blue-400 border-blue-500">Active: Smart Strike</Badge>}
                       {isCompleted && <Badge variant="outline" className="ml-2 bg-slate-800 text-slate-500">Completed</Badge>}
+
+                      <Badge 
+                        variant="outline" 
+                        className={`ml-2 flex items-center gap-1 ${
+                          bidCount > 0 
+                            ? (bidCount > 5 ? "bg-rose-500/10 text-rose-400 border-rose-500/50" : "bg-emerald-500/10 text-emerald-400 border-emerald-500/50") 
+                            : "bg-slate-800 text-slate-500"
+                        }`}
+                      >
+                        <Users className="w-3 h-3" />
+                        {bidCount} {bidCount === 1 ? 'Bidder' : 'Bidders'}
+                      </Badge>
                     </CardDescription>
                   </div>
                 </div>
